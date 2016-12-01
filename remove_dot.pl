@@ -37,10 +37,11 @@ foreach $_ (@ARGV) {
    print "rename  ", $oldfile ,"  to  ", $name;
    print "\n\n";
 	if ($opt_e) {
-		print "Ready to RUN\n";
+   	   print "Executing ...... \n";
 	   rename($oldfile, $name);
 	}
 }
+echo "Done\n"
 
 #$name =~ s{\.[^.]+$}{}
 
