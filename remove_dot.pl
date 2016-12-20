@@ -9,10 +9,15 @@ my $suffix;
 
 our ($opt_e); #For Getopt variable
 
-getopts('e:');
+getopts('e');
+#print "e is $opt_e\n" if defined $opt_e;
 
 my $oldfile;
-if  ($#ARGV <= 0) {
+#print "\n#ARGV, ARGV= ",$#ARGV,"  ", @ARGV;
+#print "\n";
+#shift @ARGV;
+#print "\n#ARGV, ARGV= ",$#ARGV, @ARGV;
+if  ($#ARGV = 0) {
 die "Usage: remove_dot.pl [-e] files\n-e : Ready to RUN\n\n";
 }
 print "\n";
@@ -25,6 +30,7 @@ foreach $_ (@ARGV) {
    print "File Ext  : ", $suffix,"\n";
    print "--------------------------------------------------------------------------\n";
 
+   $name =~ s/L\.P/LP/g;
    $name =~ s/V\.A\.-\.//g;
    $name =~ s/\.专辑\.\(FLAC\)//g;
    $name =~ s/\.专辑\.\(FLAC\)//g;
@@ -41,7 +47,8 @@ foreach $_ (@ARGV) {
 	   rename($oldfile, $name);
 	}
 }
-echo "Done\n"
+
+print "Done\n"
 
 #$name =~ s{\.[^.]+$}{}
 

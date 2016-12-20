@@ -1,0 +1,20 @@
+#!/bin/sh
+#for i in *; do
+#if [ -d "$i" ] ; then
+#	cd "$i";
+#	~/bin/rn
+#	echo current dir: `pwd` "$i"
+#	echo mv \"$i\"   \"`echo "$i" | sed "s/\ \[FLAC(分轨)\]//"`\" >> ~/tmp/list
+#	mv \"$i\"   \"`echo "$i" | sed "s/\ \[FLAC(分轨)\]//"`\" >> ~/tmp/list
+#	cd ../
+#fi
+#done
+
+for i in *; do
+if [ -d "$i" ]; then
+cd "$i";
+   for f in *.m4a; do ffmpeg -i "$f" "${f%.m4a}.flac"; done
+cd ../
+fi
+done
+
