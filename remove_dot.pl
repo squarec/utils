@@ -17,7 +17,7 @@ my $oldfile;
 #print "\n";
 #shift @ARGV;
 #print "\n#ARGV, ARGV= ",$#ARGV, @ARGV;
-if  ($#ARGV = 0) {
+if  ($#ARGV < 0) {
 die "Usage: remove_dot.pl [-e] files\n-e : Ready to RUN\n\n";
 }
 print "\n";
